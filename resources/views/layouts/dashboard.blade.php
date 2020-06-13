@@ -5,7 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>{{ config('app.name', 'Laravel') }}</title>
-    @include('layouts.common.style')    
+    @include('layouts.common.style')   	
+	@jquery
+	@toastr_js
+	@toastr_css
+	@toastr_render	
   </head>
   <body>
     <div class="container-scroller">
@@ -19,6 +23,7 @@
         <div class="main-panel">
           <div class="content-wrapper pb-0">
             @include('layouts.common.breadcrum')
+			@include('layouts.common.toastr')
 			@yield('content')
           </div>
           <!-- content-wrapper ends -->
@@ -32,26 +37,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{ asset('public/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="{{ asset('public/assets/vendors/jquery-bar-rating/jquery.barrating.min.js') }}"></script>
-    <script src="{{ asset('public/assets/vendors/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('public/assets/vendors/flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('public/assets/vendors/flot/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('public/assets/vendors/flot/jquery.flot.categories.js') }}"></script>
-    <script src="{{ asset('public/assets/vendors/flot/jquery.flot.fillbetween.js') }}"></script>
-    <script src="{{ asset('public/assets/vendors/flot/jquery.flot.stack.js') }}"></script>
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="{{ asset('public/assets/js/off-canvas.js') }}"></script>
-    <script src="{{ asset('public/assets/js/hoverable-collapse.js') }}"></script>
-    <script src="{{ asset('public/assets/js/misc.js') }}"></script>
-    <script src="{{ asset('public/assets/js/settings.js') }}"></script>
-    <script src="{{ asset('public/assets/js/todolist.js') }}"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="{{ asset('public/assets/js/dashboard.js') }}"></script>
+	@include('layouts.common.js')
     <!-- End custom js for this page -->
   </body>
 </html>
